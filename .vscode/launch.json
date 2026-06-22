@@ -1,0 +1,59 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "STM32F407VE",
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "cwd": "${workspaceRoot}/build",
+            "speed": 10000,
+            "runtimeExecutable": "probe-rs",
+            "runtimeArgs": [
+                "dap-server"
+            ],
+            "chip": "STM32F407VE",
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "haltAfterReset": false,
+                "formatOptions": {
+                    "binaryFormat": "elf"
+                }
+            },
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "${command:cmake.launchTargetPath}"
+                }
+            ],
+            "wireProtocol": "Swd",
+            "consoleLogLevel": "Debug",
+        },
+        {
+            "name": "STM32F103RC",
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "cwd": "${workspaceRoot}/build",
+            "speed": 10000,
+            "runtimeExecutable": "probe-rs",
+            "runtimeArgs": [
+                "dap-server"
+            ],
+            "chip": "STM32F103RC",
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "haltAfterReset": false,
+                "formatOptions": {
+                    "binaryFormat": "elf"
+                }
+            },
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "${command:cmake.launchTargetPath}"
+                }
+            ],
+            "wireProtocol": "Swd",
+            "consoleLogLevel": "Debug",
+        }
+    ]
+}

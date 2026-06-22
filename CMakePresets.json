@@ -1,0 +1,58 @@
+{
+    "version": 6,
+    "configurePresets": [
+        {
+            "name": "Base",
+            "hidden": true,
+            "generator": "Ninja Multi-Config",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_CONFIGURATION_TYPES": "Debug;Release"
+            }
+        },
+        {
+            "name": "GCC-ARM",
+            "hidden": true,
+            "inherits": "Base",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/Toolchain/gcc-arm.cmake"
+            }
+        },
+        {
+            "name": "RISCV-wch",
+            "hidden": true,
+            "inherits": "Base",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/Toolchain/riscv-wch.cmake"
+            }
+        },
+        {
+            "name": "Template",
+            "displayName": "Template",
+            "inherits": "GCC-ARM",
+            "cacheVariables": {
+                "PROJ_TARGET": "Template",
+                "PROJ_CHIP_NAME": "STM32F103RC"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Template-Debug",
+            "configurePreset": "Template",
+            "configuration": "Debug",
+            "targets": [
+                "Template"
+            ]
+        },
+        {
+            "name": "Template-Release",
+            "configurePreset": "Template",
+            "configuration": "Release",
+            "targets": [
+                "Template"
+            ]
+        }
+    ]
+}

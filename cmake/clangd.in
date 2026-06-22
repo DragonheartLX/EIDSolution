@@ -1,0 +1,2 @@
+CompileFlags:
+    CompilationDatabase: @EIDS_ROOT@/build/@PROJ_TARGET@
